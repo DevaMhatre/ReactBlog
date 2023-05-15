@@ -5,7 +5,8 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import "./home.css";
 import { useLocation } from "react-router";
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
+import { axiosInstance } from "../../config";
 // import { axiosInstance } from "../../config";
 
 
@@ -15,7 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search);
+      const res = await axiosInstance.get("/posts" + search);
       setPosts(res.data);
     };
     fetchPosts();

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
+import { axiosInstance } from "../../config";
 // import { axiosInstance } from "../../config";
 
 export default function Sidebar() {
@@ -10,7 +11,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/categories");
+      const res = await axiosInstance.get("/categories");
       setCats(res.data);
     };
     getCats();
